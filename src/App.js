@@ -3,7 +3,22 @@ import Header from "./Header";
 import "./App.css";
 
 class App extends Component {
+
   render() {
+
+    let subscribers = [
+      {
+        id: 1,
+        name: "Shilpa Bhat",
+        phone: "88888888"
+      },
+      {
+        id: 2,
+        name: "Srishti",
+        phone: "99999999"
+      }
+    ]
+
     return (
       <div>
         <Header />
@@ -15,14 +30,14 @@ class App extends Component {
             <span className="grid-item phone-heading">Phone</span>
           </div>
 
-          <div className="grid-container">
-            <span className="grid-item">Shilpa</span>
-            <span className="grid-item">88888888</span>
-          </div>
-          <div className="grid-container">
-            <span className="grid-item">Srishti</span>
-            <span className="grid-item">99999999</span>
-          </div>
+          {
+            subscribers.map(sub => {
+              return <div key={sub.id} className="grid-container">
+              <span className="grid-item">{sub.name}</span>
+              <span className="grid-item">{sub.phone}</span>
+            </div>
+            })
+          }
         </div>
       </div>
     );
