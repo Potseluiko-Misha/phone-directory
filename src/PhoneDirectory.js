@@ -1,12 +1,24 @@
 import React, {Component} from "react";
 import AddSubscriber from "./AddSubscriber";
+import ShowSubscribers from "./ShowSubscribers";
 
 class PhoneDirectory extends Component {
 
     constructor() {
         super();
         this.state = {
-            subscribersList: []
+            subscribersList: [
+                {
+                    id: 1,
+                    name: "Shilpa Bhat",
+                    phone: "88888888"
+                },
+                {
+                    id: 2,
+                    name: "Srishti",
+                    phone: "99999999"
+                }
+            ]
         }
     }
     addSubscriberHandler = (newSubscriber) => {
@@ -24,7 +36,8 @@ class PhoneDirectory extends Component {
     }
     render() {
         return(
-            <AddSubscriber addSubscriberHandler={this.addSubscriberHandler}/>
+            //<AddSubscriber addSubscriberHandler={this.addSubscriberHandler}/>
+            <ShowSubscribers subscribersList={this.state.subscribersList}/>
         )
     }
 }
