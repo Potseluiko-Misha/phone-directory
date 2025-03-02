@@ -1,17 +1,8 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import "./App.css";
+import "./ShowSubscribers.css";
+import "./common/common.css";
 
-class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      subscribersListToShow: []
-    }
-  }
-
-  render() {
     // let subscribers = [
     //   {
     //     id: 1,
@@ -25,6 +16,16 @@ class App extends Component {
     //   }
     // ]
 
+class ShowSubscribers extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      subscribersListToShow: []
+    }
+  }
+
+  render() {
     return (
       <div>
         <Header heading="Phone Directory"/>
@@ -53,4 +54,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ShowSubscribers;
