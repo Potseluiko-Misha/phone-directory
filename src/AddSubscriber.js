@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import './AddSubscriber.css';
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 class AddSubscriber extends Component {
@@ -27,6 +27,7 @@ class AddSubscriber extends Component {
     e.preventDefault();
     this.props.addSubscriberHandler(this.state);
     this.setState({id: 0, name: "", phone: ""});
+    this.props.navigate('/');
   }
   render() {
     const {name, phone} = this.state;
@@ -53,4 +54,9 @@ class AddSubscriber extends Component {
   }
 }
 
-export default AddSubscriber;
+function AddSubscriberWrapper(props) {
+  const navigate = useNavigate();
+  return <AddSubscriber {...props} navigate={navigate} />;
+}
+
+export default AddSubscriberWrapper;
