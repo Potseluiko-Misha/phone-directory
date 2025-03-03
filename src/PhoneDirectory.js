@@ -39,8 +39,8 @@ class PhoneDirectory extends Component {
         return(
             <BrowserRouter>
                 <Routes>
-                    <Route exact path="/" render={(props) => <ShowSubscribers {...props} subscribersList={this.state.subscribersList} />} />
-                    <Route exact path="/add" render={({history}, props) => <AddSubscriber history={history} {...props} addSubscriberHandler={this.addSubscriberHandler} />} />
+                    <Route exact path="/" element={<ShowSubscribers subscribersList={this.state.subscribersList} />} />
+                    <Route exact path="/add" element={<AddSubscriber addSubscriberHandler={this.addSubscriberHandler} />} />
                 </Routes>
             </BrowserRouter>
         )
