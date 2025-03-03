@@ -23,6 +23,12 @@ class PhoneDirectory extends Component {
             ]
         }
     }
+
+    deleteSubscriberHandler = (subscriberId) => {
+        let subscribersList = this.state.subscribersList.filter(sub => sub.id !== subscriberId);
+        this.setState({subscribersList: subscribersList});
+    }
+
     addSubscriberHandler = (newSubscriber) => {
         let subscribersList = this.state.subscribersList;
         if(subscribersList.length > 0) {
@@ -40,7 +46,7 @@ class PhoneDirectory extends Component {
         return(
             <BrowserRouter>
                 <Routes>
-                    <Route exact path="/" element={<ShowSubscribers subscribersList={this.state.subscribersList} />} />
+                    <Route exact path="/" element={<ShowSubscribers subscribersList={this.state.subscribersList} deleteSubscriberHandler={this.deleteSubscriberHandler}/>} />
                     <Route exact path="/add" element={<AddSubscriberWrapper addSubscriberHandler={this.addSubscriberHandler} />} />
                 </Routes>
             </BrowserRouter>
